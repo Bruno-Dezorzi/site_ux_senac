@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+<title>AutoPrime - Seminovos Premium</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.main-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 15px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo i {
+  font-size: 32px;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.contact-info {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.phone-link,
+.whatsapp-link,
+.social-link {
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  background: rgba(255,255,255,0.1);
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.phone-link:hover,
+.whatsapp-link:hover,
+.social-link:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+.search-box {
+  display: flex;
+  gap: 0;
+  max-width: 500px;
+  margin-left: auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 12px 20px;
+  background-color: #fff;
+  border: none;
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+.search-box input::placeholder {
+  color: #95a5a6;
+}
+
+.btn-search {
+  padding: 12px 25px;
+  background-color: #f39c12;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-search:hover {
+  background-color: #e67e22;
+}
+
+/* Navigation */
+.main-nav {
+  background-color: #fff;
+  padding: 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.nav-menu li a {
+  display: block;
+  padding: 18px 25px;
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.nav-menu li.active a,
+.nav-menu li a:hover {
+  color: #667eea;
+  border-bottom-color: #667eea;
+  background-color: #f8f9fa;
+}
+
+/* Hero Banner */
+.hero-banner {
+  position: relative;
+  height: 450px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 36px;
+  font-weight: 700;
+  display: block;
+}
+
+.stat-label {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Vitrine Section */
+.vitrine-section {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+}
+
+.section-title {
+  font-size: 36px;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #7f8c8d;
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+
+.vehicles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.vehicle-card {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.vehicle-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.vehicle-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 20px;
+  z-index: 2;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.vehicle-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3e7ff 100%);
+}
+
+.vehicle-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.vehicle-card:hover .vehicle-image img {
+  transform: scale(1.1);
+}
+
+.vehicle-info {
+  padding: 20px;
+}
+
+.vehicle-title {
+  font-size: 16px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-weight: 600;
+  min-height: 48px;
+}
+
+.vehicle-details {
+  font-size: 13px;
+  color: #95a5a6;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.old-price {
+  font-size: 13px;
+  color: #95a5a6;
+  text-decoration: line-through;
+  margin-bottom: 5px;
+}
+
+.vehicle-price {
+  font-size: 24px;
+  color: #667eea;
+  font-weight: 700;
+}
+
+.view-more {
+  text-align: center;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* Features Section */
+.features-section {
+  padding: 60px 0;
+  background-color: #fff;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 30px;
+  border-radius: 12px;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.feature-icon {
+  font-size: 48px;
+  color: #667eea;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 20px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+/* About Section */
+.about-section {
+  padding: 60px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+}
+
+.about-section h2 {
+  color: #fff;
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about-section p {
+  color: rgba(255,255,255,0.95);
+  line-height: 1.8;
+  font-size: 16px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Footer */
+.main-footer {
+  background-color: #2c3e50;
+  padding: 50px 0 0;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-column h3 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.footer-column p {
+  color: #bdc3c7;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-column i {
+  color: #667eea;
+  width: 20px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-links a {
+  color: #667eea;
+  font-size: 28px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  color: #764ba2;
+  transform: scale(1.1);
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  color: #bdc3c7;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  background-color: #1a252f;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: #95a5a6;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .vehicles-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-right {
+    width: 100%;
+  }
+
+  .contact-info {
+    justify-content: flex-start;
+    font-size: 12px;
+  }
+
+  .search-box {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+  }
+
+  .vehicles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .hero-banner {
+    height: 350px;
+  }
+  
+  .hero-content h1 {
+    font-size: 32px;
+  }
+  
+  .hero-stats {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vehicles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .search-box {
+    flex-direction: column;
+    border-radius: 12px;
+  }
+
+  .btn-search {
+    justify-content: center;
+  }
+  
+  .hero-content h1 {
+    font-size: 24px;
+  }
+  
+  .hero-content p {
+    font-size: 16px;
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="main-header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <i class="fas fa-car"></i>
+        <span>AutoPrime</span>
+      </div>
+      
+      <div class="header-right">
+        <div class="contact-info">
+          <a href="tel:+5511987654321" class="phone-link">
+            <i class="fas fa-phone"></i> (11) 98765-4321
+          </a>
+          <a href="https://wa.me/5511912345678" class="whatsapp-link">
+            <i class="fab fa-whatsapp"></i> (11) 91234-5678
+          </a>
+          <a href="#" class="social-link">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="social-link">
+            <i class="fab fa-facebook"></i>
+          </a>
+        </div>
+        
+        <div class="search-box">
+          <input type="text" placeholder="Buscar marca, modelo, ano...">
+          <button class="btn-search">
+            <i class="fas fa-search"></i> Buscar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Navigation -->
+<nav class="main-nav">
+  <div class="container">
+    <ul class="nav-menu">
+      <li class="active"><a href="#home">Home</a></li>
+      <li><a href="#estoque">Estoque</a></li>
+      <li><a href="#avaliacao">Avaliação</a></li>
+      <li><a href="#financiamento">Financiamento</a></li>
+      <li><a href="#empresa">Empresa</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero Banner -->
+<section class="hero-banner">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Encontre o Carro dos Seus Sonhos</h1>
+      <p>Seminovos premium com qualidade e os melhores preços</p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">500+</span>
+          <span class="stat-label">Veículos Vendidos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Procedência</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Anos de Experiência</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Vitrine -->
+<section class="vitrine-section">
+  <div class="container">
+    <h1 class="section-title">Veículos em Destaque</h1>
+    <p class="section-subtitle">Confira nossa seleção especial de seminovos</p>
+    
+    <div class="vehicles-grid">
+      <!-- Veículo 1 -->
+      <div class="vehicle-card">
+        <div class="vehicle-image">
+          <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=300&fit=crop" alt="RENAULT KWID INTENS 2">
+        </div>
+        <div class="vehicle-info">
+          <h3 class="vehicle-title">2023 RENAULT KWID INTENS 2</h3>
+          <p class="vehicle-details">RENAULT • BRANCO • FLEX</p>
+          <div class="vehicle-price">R$ 56.900</div>
+        </div>
+      </div>
+
+      <!-- Veículo 2 -->
+      <div class="vehicle-card">
+        <div class="vehicle-image">
+          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=300&fit=crop" alt="FORD KA SE 1.0 SD C">
+        </div>
+        <div class="vehicle-info">
+          <h3 class="vehicle-title">2021 FORD KA SE 1.0 SD C</h3>
+          <p class="vehicle-details">FORD • CINZA • FLEX</p>
+          <div class="vehicle-price">R$ 54.900</div>
+        </div>
+      </div>
+
+      <!-- Veículo 3 -->
+      <div class="vehicle-card">
+        <div class="vehicle-image">
+          <img src="https://images.unsplash.com/photo-1558980664-769d59546b3d?w=400&h=300&fit=crop" alt="TRIUMPH TIGER 800 XCA">
+        </div>
+        <div class="vehicle-info">
+          <h3 class="vehicle-title">2020 TRIUMPH TIGER 800 XCA</h3>
+          <p class="vehicle-details">TRIUMPH • LARANJA • GASOLINA</p>
+          <div class="vehicle-price">R$ 60.900</div>
+        </div>
+      </div>
+
+      <!-- Veículo 4 -->
+      <div class="vehicle-card">
+        <div class="vehicle-badge">OFERTA</div>
+        <div class="vehicle-image">
+          <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400&h=300&fit=crop" alt="VOLKSWAGEN NOVA SAVEIRO">
+        </div>
+        <div class="vehicle-info">
+          <h3 class="vehicle-title">2017 VOLKSWAGEN NOVA SAVEIRO RB</h3>
+          <p class="vehicle-details">VOLKSWAGEN • BRANCO • FLEX</p>
+          <p class="old-price">de R$ 55.900</p>
+          <div class="vehicle-price">R$ 53.900</div>
+        </div>
+      </div>
+
+      <!-- Veículo 5 -->
+      <div class="vehicle-card">
+        <div class="vehicle-image">
+          <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=400&h=300&fit=crop" alt="HYUNDAI SANTA FE V6">
+        </div>
+        <div class="vehicle-info">
+          <h3 class="vehicle-title">2016 HYUNDAI SANTA FE V6</h3>
+          <p class="vehicle-details">HYUNDAI • BRANCO • GASOLINA</p>
+          <div class="vehicle-price">R$ 103.900</div>
+        </div>
+      </div>
+
+      <!-- Veículo 6 -->
+      <div class="vehicle-card">
+        <div class="vehicle-image">
+          <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400&h=300&fit=crop" alt="VOLKSWAGEN VOYAGE">
+        </div>
+        <div class="vehicle-info">
+          <h3 class="vehicle-title">2015 VOLKSWAGEN VOYAGE CL MA</h3>
+          <p class="vehicle-details">VOLKSWAGEN • PRATA • FLEX</p>
+          <div class="vehicle-price">R$ 46.900</div>
+        </div>
+      </div>
+
+      <!-- Veículo 7 -->
+      <div class="vehicle-card">
+        <div class="vehicle-image">
+          <img src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=400&h=300&fit=crop" alt="MERCEDES-BENZ A250">
+        </div>
+        <div class="vehicle-info">
+          <h3 class="vehicle-title">2015 MERCEDES-BENZ A250 SPORT</h3>
+          <p class="vehicle-details">MERCEDES-BENZ • BRANCO • GASOLINA</p>
+          <div class="vehicle-price">R$ 125.900</div>
+        </div>
+      </div>
+
+      <!-- Veículo 8 -->
+      <div class="vehicle-card">
+        <div class="vehicle-image">
+          <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=400&h=300&fit=crop" alt="VOLKSWAGEN GOL">
+        </div>
+        <div class="vehicle-info">
+          <h3 class="vehicle-title">2014 VOLKSWAGEN GOL 1.0 GIV</h3>
+          <p class="vehicle-details">VOLKSWAGEN • PRATA • FLEX</p>
+          <div class="vehicle-price">R$ 32.900</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="view-more">
+      <a href="#estoque" class="btn-primary">Ver Estoque Completo <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section">
+  <div class="container">
+    <h2 class="section-title">Por Que Escolher a AutoPrime?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>100% Procedência</h3>
+        <p>Todos os veículos passam por rigoroso controle de qualidade e checagem completa de histórico</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-handshake"></i>
+        </div>
+        <h3>Financiamento Fácil</h3>
+        <p>Oferecemos as melhores condições de financiamento do mercado com aprovação rápida</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <h3>Melhor Atendimento</h3>
+        <p>Equipe especializada pronta para te ajudar a encontrar o veículo ideal para você</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section">
+  <div class="container">
+    <h2>Sobre a AutoPrime</h2>
+    <p>
+      A <strong>AutoPrime</strong> atua no mercado de <strong>seminovos premium</strong> oferecendo sempre as <strong>melhores ofertas</strong> para você. Trabalhamos somente com <strong>veículos de procedência</strong> que passam por um rigoroso <strong>controle de qualidade</strong> e checagem completa no histórico. Pensou em <strong>comprar seminovo de qualidade</strong>, pensou AutoPrime. Seu próximo carro está aqui!
+    </p>
+  </div>
+</section>
+
+<!-- Plugin VLibras -->
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper>
+    <div class="vw-plugin-top-wrapper"></div>
+  </div>
+</div>
+
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+  new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+
+<!-- UserWay -->
+<script>
+  (function(d){
+    var s = d.createElement("script");
+    s.setAttribute("data-account", "SEU_ACCOUNT_ID_AQUI"); 
+    s.src="https://cdn.userway.org/widget.js";
+    (d.body||d.head).appendChild(s);
+  })(document)
+</script>
+<noscript>
+  Por favor, certifique-se de que o Javascript esteja habilitado para acessibilidade.
+</noscript>
+
+
+<!-- Footer -->
+<footer class="main-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Contato</h3>
+        <p><i class="fas fa-phone"></i> (11) 98765-4321</p>
+        <p><i class="fab fa-whatsapp"></i> (11) 91234-5678</p>
+        <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1578<br>Bela Vista - São Paulo/SP</p>
+        <div class="social-links">
+          <a href="#" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="#" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Horários de Atendimento</h3>
+        <p><strong>Segunda à Sexta:</strong><br>8:00 às 19:00</p>
+        <p><strong>Sábados:</strong><br>8:30 às 16:00</p>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#estoque">Estoque</a></li>
+          <li><a href="#avaliacao">Avaliação</a></li>
+          <li><a href="#financiamento">Financiamento</a></li>
+          <li><a href="#empresa">Empresa</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; 2025 AutoPrime - www.autoprime.com.br - Todos os direitos reservados</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
